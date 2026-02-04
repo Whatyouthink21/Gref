@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --netflix-red: #E50914;
+    --netflix-black: #141414;
+    --netflix-gray: #2D2D2D;
+  }
+
+  * {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-netflixDark text-netflixLight overflow-x-hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-netflixDark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-netflix hover:bg-red-700 rounded-full;
+  }
+}
+
+@layer components {
+  .btn-netflix {
+    @apply bg-netflix text-white px-6 py-2 rounded hover:bg-red-700 
+           transition-all duration-200 font-semibold text-lg
+           hover:scale-105 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-netflixLight text-netflixLight px-6 py-2 rounded 
+           hover:bg-netflixLight hover:text-netflixDark transition-all duration-200;
+  }
+
+  .movie-card {
+    @apply relative overflow-hidden rounded-lg cursor-pointer 
+           transition-all duration-300 hover:scale-105 hover:z-20;
+  }
+
+  .movie-card:hover .movie-overlay {
+    @apply opacity-100;
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(20, 20, 20, 1) 0%,
+      rgba(20, 20, 20, 0.8) 20%,
+      rgba(20, 20, 20, 0.4) 40%,
+      transparent 100%
+    );
+  }
+
+  .text-gradient {
+    background: linear-gradient(45deg, #E50914, #FF6B6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glow {
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-gray-700 rounded;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(180deg, 
+      transparent 0%, 
+      rgba(20, 20, 20, 0.7) 40%, 
+      rgba(20, 20, 20, 0.9) 70%, 
+      rgba(20, 20, 20, 1) 100%
+    );
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(229, 9, 20, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(229, 9, 20, 0.8); }
+}
