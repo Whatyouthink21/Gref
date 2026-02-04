@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/videasy.js": {
+      "maxDuration": 30
+    },
+    "api/tmdb.js": {
+      "maxDuration": 10
+    }
+  }
+}
